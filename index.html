@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="http://developersstudio.mx/iconYouTubeDevelopers.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    
+    <script>
+        document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+    <title>Developers Studio</title>
+</head>
+<body >
+    <div class="reveal">
+        <div class="slides"> 
+            <section >
+                <section>
+                    <h2>¿Qué es ECMAScript?</h2>
+                    <blockquote>
+                        Específicamente es el estándar que se encarga de regir como debe ser interpretado y funcionar el lenguaje JavaScript,
+                    </blockquote>
+                    <h2>¿Qué es ES6?</h2>
+                    <blockquote>
+                        ECMAScript 2015 (ES6) es la sexta edicion de las especificaciones del estandar del lenguaje ECMAScript
+                    </blockquote>
+                </section>
+                <section> 
+                    <h2>Funciones (ES6)</h2>
+                    <hr> 
+                    <h5>Functions (ES6)</h5>  
+                    <hr>   
+                    <div>
+                        <ul>
+                            <li>Normal</li>
+                            <li>Declarative (Declarativa)</li>
+                            <li>Arrow (Flecha)</li>
+                            <li>Anonymous (Anonima)</li>
+                            <li>Closure (Clausura)</li>
+                            <li>Generator (Generadora)</li>
+                            <li>Impure (Impura)</li>
+                            <li>Pure (Pura)</li>
+                        </ul>
+                    </div>
+                    <hr>   
+                </section>
+               
+            </section>
+            <section>
+                <section >Normal
+                    <pre>
+                        <code>
+                    function testFunction(){
+                        console.log("Hola mundo test function");
+                    }
+                        </code>
+                    </pre>
+                </section>
+            </section>
+            <section>
+                <section>Declarative
+                    <pre>
+                        <code>
+            const tetsDeclarativeFunction = function testFunction() {
+                console.log("Hola mundo test declarative function");
+            };
+                        </code>
+                    </pre>
+                </section>
+                <section>Arrow
+                        <pre>
+                            <code>
+            const testArrowFunction = () = > {
+                console.log("Hola mundo test arrow function");
+            };
+                            </code>
+                        </pre>
+                </section>
+                <section>Anonymous
+                    <pre  >
+                        <code>
+        const testAnonymousFunction = function() {
+            console.log("Hola mundo test anonymous function");
+        };        
+                        </code>
+                    </pre>
+
+                </section>
+                <section>Ejemplo
+                    <pre>
+                        <code>
+        const testArrowFunction = ()=> {
+            console.log("Hola mundo test arrow function",this);
+        };
+
+        const testAnonymousFunction = function() {
+            console.log("Hola mundo test anonymous function",this);
+        };   
+                        </code>
+                    </pre>
+                    <hr>
+                    <div class="">
+                        <p for="">
+                            checkbox
+                            <input type="checkbox"  id="cbx">
+                        </label>
+                    </div>
+                </section>
+            </section>
+            <section>
+                <section>Closure
+                    <pre >
+                        <code>
+function testClosureFunction(x)  {
+    return function closure(y) {
+        console.log(`Hola mundo test closure arrow function 
+                    el valor de 'x' es: "${x}" y el valor de 'y' es: "${y}" 
+                    la suma de 'x+y' es: "${(x+y)}"`);
+    }
+}
+                        </code>
+                    </pre>
+                </section>
+                <section>Closure Declarative
+                    <section>
+                        <pre>
+                            <code>
+const testClosureFunction = (x)=> {
+    return (y)=> {
+        console.log(`Hola mundo test closure arrow function 
+                    el valor de 'x' es: "${x}" y el valor de 'y' es: "${y}" 
+                    la suma de 'x+y' es: "${(x+y)}"`);
+    }
+}      
+
+                            </code>
+                        </pre>
+                    </section>
+                </section>
+            </section>
+            <section>
+                <section>
+                    Example function without<blockquote>return</blockquote>
+                    <pre>
+                        <code>
+    const testClosureFunction = () => {
+        return () => {
+            console.log("Hola mundo test closure arrow function");
+        }
+    }  
+    const testClosureFunctionReturn = () => ( () => {
+        console.log("Hola mundo test closure arrow function");
+    });
+                        </code>
+                    </pre>
+                </section>
+            </section>
+            <section>
+                <section>Generator
+                    <pre>
+                        <code>
+            function* testGeneratorFunction()  {     
+                var index = 0;
+                while(index < 3){
+                    index++;
+                    yield "Hola mundo test generator function"+index;
+                }
+            }
+            var gen = testGeneratorFunction();
+            console.log(gen.next().value); 
+                        </code>
+                </section>
+            </section>
+            <section>
+                <section>Impure
+                    <pre>
+                        <code>
+        function impureFunction(obj){
+            obj["msg"]="Hola mundo impure function";
+            obj.num=obj.num+10;
+            return obj;
+        }
+        var Objeto:{
+            num:10
+        }
+                        </code>
+                    </pre>
+                </section>
+            </section>
+            <section>
+                <section>Pure
+                    <pre>
+                        <code>
+        function pureFunction(obj){
+            return{
+                    ...obj,//Destructuring
+                    num:obj.num+10,
+                    msg:"Hola mundo pure function"
+                }
+        }
+        var Objeto:{
+            num:10
+        }
+                        </code>
+                    </pre>
+                </section>
+            </section>
+            <section>
+                <section>Tips
+                    <pre>
+                        <code>
+        function testFunction(){
+            console.log("Hola mundo test function");
+        }
+
+        const fn=function testFunction(){
+            console.log("Hola mundo test function");
+        }
+                        </code>
+                    </pre>
+                </section>
+            </section>
+            <section>
+                Conclusions
+                <img style="border: none; background-color: transparent; box-shadow: none;" src="./conclusions.png" alt="">
+            </section>
+        </div>
+    </div>
+</body>
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.min.js"></script>
+<script>
+
+    // Full list of configuration options available here:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+            { src: 'lib/js/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
+            { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+            { src: 'lib/js/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            { src: 'lib/js/data-markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+            { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+    });
+</script>
+
+
+</html>
