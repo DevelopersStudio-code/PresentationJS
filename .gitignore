@@ -4,4 +4,6 @@ log/*.log
 tmp/**
 node_modules/
 .sass-cache
-example.html
+server.js
+Procfile
+package.json
